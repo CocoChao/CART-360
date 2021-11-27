@@ -1,0 +1,58 @@
+/************************* PART TWO A: Code Observation
+
+**** i) Explain in a stepwise ordering how the game play is implemented?
+
+1- First, declare the variables to store the random sequence and declare the game state.
+2- Returns the periods in microseconds of the half-cycle tone for each button.  
+3- Check if the pushed button is following the correct sequence. If the wrong button is 
+pressed, light sequence will play (red, yellow, green, blue). 
+4- If the correct button is pressed, the correct LED lights up and adds another term
+to the sequence for half a period.
+5- LED light waits half a period to flash the next LED of the sequence when buttons are played correctly.
+6- When the previous sequence is played correctly, it outputs the previous sequence plus an additional value to the sequence. 
+7- If else, return false and the cycle restarts after all the light turns on.
+8- Define the halfPeriod in milliseconds and the duration of delay.
+9- The buzzer plays a feedback sound half a period after, depending on whether the correct/incorrect button is pushed.
+10- Add a flash and sound delay after a button is pushed and a delay before starting.
+11- Generate a random sequence with randomSeed() function and check the precision/timing when button is pressed and if it's correct/incorrect.
+12- Always adds +1 to the end of the sequence length and delay.
+
+**** ii) Identify and Explain the principal functions for establishing game state?
+
+The randomSeed game state function generates a random sequence of LED light and sound. 
+"gameSeed" variable also calls the micros() function which essentially reads the pushed button and "returns the number of 
+microseconds since the Arduino board begins running the program".  
+
+Source: https://www.arduino.cc/reference/en/language/functions/time/micros/
+
+************************* PART TWO B: Initial Code Observation 
+
+**** i) What computational structure(s) do you believe to be missing - although game runs?
+
+A computational structure such as a break to end/exit the loop() function. 
+
+**** ii) What purpose would the missing structure(s) serve?
+
+It would allow the user to "finish" the game in a way. The user will have a sense of 
+accomplishment knowing that they were able to get all the buttons in the correct 
+sequence order. It also allows the user to have additional trial and error opportunities 
+and improve their memorization abilities with time. 
+
+************************* PART THREE: How does the game work
+
+**** i) What computational structure does the game employ to establish and maintain state?
+
+It implements sketch function called loop() and setup () to program a routine, control structures 
+such as return and switch case statements and boolean operators "&&".
+
+**** ii) What is special about this computational structure?
+
+The loop() sketch structure allows the program to continuously compute and return the results. In this case, 
+it allows the user to continuously try the game even if they press the wrong button. The switch case statement 
+control structures execute the LED and sound feedback response when it meets a condition (i.e., when the game 
+is over, each LED light is timed to blink one after another). The return control structure ends the function 
+and returns a result to another function. The "logicaland" boolean operators only works if both operands are 
+true. This is implemented to add a period of time between the moment a button is pressed and the timeout phase.
+
+
+*************************/
